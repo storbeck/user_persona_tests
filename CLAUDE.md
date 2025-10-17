@@ -142,5 +142,3 @@ When executed:
 * Keep interactions human-like (add think time between steps).
 * If the UI is unclear, describe the confusion in the report.
 * Each persona prompt should include its own mission, device, and success criteria.
-
-```
