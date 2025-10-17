@@ -6,15 +6,15 @@ This project uses **Claude + Playwright MCP** to simulate realistic browsing beh
 ---
 
 ## 📂 What’s Inside
+| Path                               | Description                                                                                   |
+| ---------------------------------- | --------------------------------------------------------------------------------------------- |
+| **`CLAUDE.md`**                    | Core system instructions for the autonomous UX evaluator (load as your **system prompt**).    |
+| **`personas/`**                    | Persona prompts that define who the user is, what site to test, and what mission to complete. |
+| ├ `personas/cautious-newcomer.md`  | A tentative first-time visitor who values clarity and reassurance.                            |
+| ├ `personas/mobile-multitasker.md` | A busy user switching between apps on a small screen.                                         |
+| ├ `personas/visual-browser.md`     | A visually-driven user who navigates via imagery rather than text.                            |
+| └ `personas/efficient-shopper.md`  | A pragmatic user optimizing for speed and simplicity.                                         |
 
-| File/Folder                 | Purpose                                                                                    |
-|--------------|----------|
-| `<nobr>CLAUDE.md</nobr>` | Core system instructions for the autonomous UX evaluator (load as your **system prompt**). |
-| `<nobr>personas/</nobr>` | User profiles and missions that define how the agent behaves and what it tries to achieve. |
-| ├── `<nobr>cautious-newcomer.md</nobr>` | A tentative first-time visitor who values clarity and reassurance. |
-| ├── `<nobr>mobile-multitasker.md</nobr>` | A busy user switching between apps on a small screen. |
-| ├── `<nobr>visual-browser.md</nobr>` | A visually-driven user who navigates via imagery rather than text. |
-| ├── `<nobr>efficient-shopper.md</nobr>` | A pragmatic user optimizing for speed and simplicity. |
 
 ---
 
