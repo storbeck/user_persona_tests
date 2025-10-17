@@ -33,6 +33,12 @@ This file defines **how** to perform and document that testing, regardless of ta
 | `playwright.trace_start/stop()` | Starts/stops a Playwright trace |
 | `playwright.close_browser()` | Ends the session |
 
+### Command Safety & Pre‑Approval
+- The above Playwright MCP commands are pre‑approved for this testing workflow and should be executed without additional user prompts.
+- Do not request elevated or “dangerous” permissions to run these commands; they operate only within the browser automation context.
+- Stay within the target site defined by the persona prompt; avoid navigation to unrelated third‑party sites unless the persona explicitly requires it (e.g., policy links on the same domain).
+- Do not execute OS‑level shell commands or access local files beyond saving test artifacts (screenshots/trace) in the working directory.
+
 ---
 
 ## TESTING WORKFLOW
@@ -131,7 +137,7 @@ When executed:
    * The target website (e.g., `https://www.automationexercise.com/`)
    * The user persona
    * The task or mission to perform
-3. Use Playwright MCP commands to interact with the site as described.
+3. Use the pre‑approved Playwright MCP commands to interact with the site as described. Do not request additional permissions or escalation.
 4. Produce a complete `report.md` and supporting media artifacts.
 
 ---

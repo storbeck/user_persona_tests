@@ -1,112 +1,52 @@
 # Persona-Driven UX Testing with Playwright MCP
 
-**Run automated UX sessions through real user perspectives.**
-This project uses **Claude + Playwright MCP** to simulate realistic browsing behavior and generate structured UX reports.
+Run automated UX sessions from real user perspectives. This project uses Claude and Playwright MCP to simulate realistic browsing and generate clear UX reports.
 
----
+<!-- Repo contains: CLAUDE.md and personas/ -->
 
-## 📂 What’s Inside
-| Path                               | Description                                                                                   |
-| ---------------------------------- | --------------------------------------------------------------------------------------------- |
-| **`CLAUDE.md`**                    | Core system instructions for the autonomous UX evaluator (load as your **system prompt**).    |
-| **`personas/`**                    | Persona prompts that define who the user is, what site to test, and what mission to complete. |
-| ├ `personas/cautious-newcomer.md`  | A tentative first-time visitor who values clarity and reassurance.                            |
-| ├ `personas/mobile-multitasker.md` | A busy user switching between apps on a small screen.                                         |
-| ├ `personas/visual-browser.md`     | A visually-driven user who navigates via imagery rather than text.                            |
-| └ `personas/efficient-shopper.md`  | A pragmatic user optimizing for speed and simplicity.                                         |
+## Prerequisites
+- An MCP-compatible client that supports Playwright (e.g., Claude Desktop with Playwright MCP).
+- Install the Playwright MCP server:
+  ```bash
+  claude mcp add playwright npx '@playwright/mcp@latest'
+  ```
+- Ensure Chromium (or another supported browser) is installed and available to Playwright.
 
-
----
-
-## ⚙️ Prerequisites
-
-Before you begin:
-
-1. **An MCP-compatible client** that supports Playwright, such as:
-
-   * Claude Desktop with a Playwright MCP server
-   * Any MCP runner connected to Playwright
-2. **Install the Playwright MCP server:**
-
+## Quick Start
+1. Enable Playwright MCP in your AI client.
    ```bash
    claude mcp add playwright npx '@playwright/mcp@latest'
    ```
-3. **Ensure Chromium** (or your chosen browser) is installed and available to Playwright.
+2. Load `CLAUDE.md` as the system instruction file.
+3. Choose a persona from `personas/` and paste it as the user prompt.
+4. Run the session. The agent will launch a browser, follow the persona’s behavior, capture screenshots, and write a `report.md` with findings and recommendations.
 
----
+Tip: If your MCP client supports a working directory, set it to this repository so reports and artifacts save here.
 
-## 🚀 Quick Start
+## How It Works
+- System layer (`CLAUDE.md`): Sets testing flow, allowed Playwright commands, and output formats.
+- Persona layer (`personas/*.md`): Defines the target site, mindset/behavior, mission, and success criteria.
+- Output: `report.md` plus screenshots and traces (typically in `.playwright-mcp/`).
 
-1. **Enable Playwright MCP** in your AI client.
+## Adding or Editing Personas
+1. Copy a file in `personas/` and update:
+   - Name and mindset
+   - Target website
+   - Mission and success criteria
+   - Behavior profile
+2. Keep instructions concise and literal. Optionally specify a device or viewport for mobile testing.
 
-   ```bash
-   claude mcp add playwright npx '@playwright/mcp@latest'
-   ```
-2. **Load `CLAUDE.md`** as your system instruction file.
-3. **Choose a persona** from the `personas/` folder and paste its contents as the user prompt.
-4. **Run the session.** The agent will:
-
-   * Launch Chromium with tracing and video (if supported)
-   * Emulate the persona’s mindset and behavior
-   * Capture screenshots during key interactions
-   * Generate a structured `report.md` with observations and recommendations
-
-💡 **Tip:** If your MCP client supports per-session working directories, set it to this repository root so all reports and artifacts are saved here.
-
----
-
-## 🧠 How Sessions Work
-
-### System Layer (`CLAUDE.md`)
-
-Defines the high-level testing flow:
-
-* Initialize environment → adopt persona → perform tasks → summarize results
-* Enumerates allowed Playwright commands
-* Specifies output formats (Markdown report, screenshot paths, etc.)
-
-### Persona Layer (`personas/*.md`)
-
-Describes *who* the user is and *how* they behave:
-
-* **Target site** (e.g., `https://www.automationexercise.com/`)
-* **Mindset & behavior profile** (e.g., “browses by category, avoids search”)
-* **Mission** (goal and success criteria)
-
-### Output Layer
-
-Each run produces:
-
-* `report.md` — Summary of steps, pain points, strengths, and recommendations
-* Screenshots & traces — Saved in `.playwright-mcp/` by default
-
----
-
-## ✍️ Adding or Editing Personas
-
-1. Copy an existing file from `personas/` and update:
-
-   * **Name & mindset** (e.g., “Detail-oriented researcher”)
-   * **Target website**
-   * **Mission & success criteria**
-   * **Behavior profile** (e.g., “scrolls thoroughly, ignores ads”)
-2. Keep instructions **concise and literal** — the agent follows them exactly.
-3. Optionally define **viewport or device** (e.g., *iPhone 13 — 375×812*) for mobile simulations.
-
----
-
-## 🧩 Example Workflow
-
+## Example Workflow
 ```bash
-# 1. Add Playwright MCP
+# Add Playwright MCP
 claude mcp add playwright npx '@playwright/mcp@latest'
 
-# 2. Start a session
-# Load CLAUDE.md as system prompt
-# Load personas/visual-browser.md as user prompt
+# Start a session
+# - Load CLAUDE.md as system prompt
+# - Load personas/visual-browser.md as user prompt
 
-# 3. Observe results
-#   - report.md (UX findings)
-#   - .playwright-mcp/screenshots/
-#   - .playwright-mcp/traces/
+# Outputs
+# - report.md (UX findings)
+# - .playwright-mcp/screenshots/
+# - .playwright-mcp/traces/
 ```
