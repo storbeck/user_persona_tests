@@ -8,13 +8,13 @@ This project uses **Claude + Playwright MCP** to simulate realistic browsing beh
 ## 📂 What’s Inside
 
 | File/Folder                 | Purpose                                                                                    |
-| --------------------------- | ------------------------------------------------------------------------------------------ |
-| `CLAUDE.md`                 | Core system instructions for the autonomous UX evaluator (load as your **system prompt**). |
-| `personas/`                 | User profiles and missions that define how the agent behaves and what it tries to achieve. |
-| ├ `cautious-newcomer.md`  | A tentative first-time visitor who values clarity and reassurance.                         |
-| ├ `mobile-multitasker.md` | A busy user switching between apps on a small screen.                                      |
-| ├ `visual-browser.md`     | A visually-driven user who navigates via imagery rather than text.                         |
-| └ `efficient-shopper.md`  | A pragmatic user optimizing for speed and simplicity.                                      |
+|--------------|----------|
+| `<nobr>CLAUDE.md</nobr>` | Core system instructions for the autonomous UX evaluator (load as your **system prompt**). |
+| `<nobr>personas/</nobr>` | User profiles and missions that define how the agent behaves and what it tries to achieve. |
+| ├── `<nobr>cautious-newcomer.md</nobr>` | A tentative first-time visitor who values clarity and reassurance. |
+| ├── `<nobr>mobile-multitasker.md</nobr>` | A busy user switching between apps on a small screen. |
+| ├── `<nobr>visual-browser.md</nobr>` | A visually-driven user who navigates via imagery rather than text. |
+| ├── `<nobr>efficient-shopper.md</nobr>` | A pragmatic user optimizing for speed and simplicity. |
 
 ---
 
